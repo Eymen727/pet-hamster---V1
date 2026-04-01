@@ -22,21 +22,15 @@ input.onButtonPressed(Button.AB, function () {
         `)
 })
 input.onButtonPressed(Button.B, function () {
-    basic.showLeds(`
-        . . . . .
-        . # . # .
-        . . . . .
-        . # # # .
-        . . . . .
-        `)
-    basic.pause(10000)
-    basic.showLeds(`
-        . . . . .
-        # # . # #
-        . . . . .
-        . # # # .
-        . . . . .
-        `)
+    manyetik = input.magneticForce(Dimension.X)
+    led.plotBarGraph(
+    manyetik,
+    1023,
+    true
+    )
+    if (manyetik > 200) {
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+    }
 })
 input.onGesture(Gesture.Shake, function () {
     basic.showIcon(IconNames.Sad)
@@ -48,5 +42,6 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     soundExpression.happy.playUntilDone()
     basic.showIcon(IconNames.Asleep)
 })
+let manyetik = 0
 soundExpression.hello.playUntilDone()
 basic.showIcon(IconNames.Asleep)
