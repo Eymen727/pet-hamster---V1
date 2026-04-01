@@ -28,9 +28,6 @@ input.onButtonPressed(Button.B, function () {
     1023,
     true
     )
-    if (manyetik > 200) {
-        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-    }
 })
 input.onGesture(Gesture.Shake, function () {
     basic.showIcon(IconNames.Sad)
